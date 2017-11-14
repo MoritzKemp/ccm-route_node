@@ -51,7 +51,7 @@
             this.getPatterns = function(){
                 return my.patterns;
             };
-            this.setPattern = function( patterns ){
+            this.setPatterns = function( patterns ){
                 my.patterns = patterns;
             };
             this.getPrevNode = function(){
