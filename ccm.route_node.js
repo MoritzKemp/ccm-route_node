@@ -45,7 +45,6 @@
                 if(my.prevNode.node)
                     my.prevNode.node.addNextNode(self);
                 
-                console.log(my);
                 //Invoke URL check manualy once on start
                 onURLChange();
                 if(callback) callback();
@@ -89,6 +88,10 @@
             this.addObserver = function( handlerFunction ){
                 if( typeof(handlerFunction) === 'function')
                     my.observer.push(handlerFunction);
+            };
+            
+            this.checkURL = function(){
+                onURLChange();
             };
             
             /* private functions */
