@@ -39,7 +39,7 @@ THE SOFTWARE.
             let route_2 = {};
             let route_3 = {};
             
-            ccm.start("./ccm.route_node.js", {
+            ccm.start("https://moritzkemp.github.io/ccm-route_node/ccm.route_node.js", {
                 "isRoot": true,
                 "observer" : [
                     (route)=>{
@@ -48,7 +48,7 @@ THE SOFTWARE.
                 ]
             }, function(instance){
                 route_1 = instance;
-                ccm.start("./ccm.route_node.js", {
+                ccm.start("https://moritzkemp.github.io/ccm-route_node/ccm.route_node.js", {
                     "patterns": ["/foo", "/bar"],
                     "prevNode": {"route": "", "node":route_1},
                     "observer" : [
@@ -59,7 +59,7 @@ THE SOFTWARE.
                     
                 }, function(instance_1){
                     route_2 = instance_1;
-                    ccm.start("./ccm.route_node.js", {
+                    ccm.start("https://moritzkemp.github.io/ccm-route_node/ccm.route_node.js", {
                         "patterns": ["/week_1", "/week_2"],
                         "prevNode": {"route": "/foo", "node":route_2},
                         "observer" : [
