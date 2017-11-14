@@ -120,7 +120,11 @@
             
             const onURLChange = function(){
                 if(location.hash.length > 0){
-                    self.notify("", location.hash.replace('#', ''));
+                    let route = location.hash.replace('#', '');
+                    let result = getMatch(route, my.patterns);
+                    if(result){
+                        self.notify(result[1], result[2]);
+                    }
                 }
             };
             
