@@ -84,7 +84,7 @@
             
             this.addObserver = function( handlerFunction ){
                 if( typeof(handlerFunction) === 'function')
-                    my.handlers.push(handlerFunction);
+                    my.observer.push(handlerFunction);
             };
             
             /* private functions */
