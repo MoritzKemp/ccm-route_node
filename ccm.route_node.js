@@ -39,6 +39,7 @@
             
             this.ready = function( callback ){
                 my = self.ccm.helper.privatize(self);
+                console.log(my);
                 if(my.isRoot){
                     window.onpopstate = onURLChange;
                 }
