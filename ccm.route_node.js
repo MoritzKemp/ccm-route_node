@@ -37,16 +37,18 @@
             let my = {};
             const self = this;
             
-            this.start = function( callback ){
+            this.ready = function( callback ){
                 my = self.ccm.helper.privatize(self);
                 if(my.isRoot){
                     window.onpopstate = onURLChange;
-                    //Invoke URL check manualy once on start
-                    onURLChange();
                 }
                 if(my.prevNode.node)
                     my.prevNode.node.addNextNode(self);
-                
+            };
+            
+            this.start = function( callback ){
+                //Invoke URL check manualy once on start
+                onURLChange();
                 if(callback) callback();
             };
             
