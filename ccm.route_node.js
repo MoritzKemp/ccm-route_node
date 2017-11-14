@@ -59,6 +59,8 @@
             };
             this.setPrevNode = function( prev ){
                 my.prevNode = prev;
+                if(my.prevNode.node)
+                    my.prevNode.node.addNextNode(self);
             };
             this.addNextNode = function( next ){
                 my.nextNodes.push(next);
