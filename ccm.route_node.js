@@ -36,7 +36,7 @@
         Instance: function(){
             let my = {};
             const self = this;
-            
+           
             this.start = function( callback ){
                 my = self.ccm.helper.privatize(self);
                 if(my.isRoot){
@@ -44,6 +44,9 @@
                 }
                 if(my.prevNode.node)
                     my.prevNode.node.addNextNode(self);
+                
+                //Invoke URL check manualy once on start
+                onURLChange();
                 if(callback) callback();
             };
             
@@ -87,6 +90,13 @@
                     my.observer.push(handlerFunction);
             };
             
+            this.checkURL = function(){
+                if(my.isRoot)
+                    onURLChange();
+                else
+                    my.prevNode.checkURL();
+            };
+            
             /* private functions */
             const notifyObserver = function( route ){
                 my.observer.forEach( (observer)=>{
@@ -120,7 +130,11 @@
             
             const onURLChange = function(){
                 if(location.hash.length > 0){
-                    self.notify("", location.hash.replace('#', ''));
+                    let route = location.hash.replace('#', '');
+                    let result = getMatch(route, my.patterns);
+                    if(result){
+                        self.notify(result[1], result[2]);
+                    }
                 }
             };
             
