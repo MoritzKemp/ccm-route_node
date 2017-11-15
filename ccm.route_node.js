@@ -93,8 +93,8 @@
             this.checkURL = function(){
                 if(my.isRoot)
                     onURLChange();
-                else
-                    my.prevNode.checkURL();
+                else if(my.prevNode.node)
+                    my.prevNode.node.checkURL();
             };
             
             /* private functions */
