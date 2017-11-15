@@ -91,7 +91,10 @@
             };
             
             this.checkURL = function(){
-                onURLChange();
+                if(my.isRoot)
+                    onURLChange();
+                else
+                    my.prevNode.checkURL();
             };
             
             /* private functions */
