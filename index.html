@@ -40,12 +40,13 @@ THE SOFTWARE.
             let route_3 = {};
             
             ccm.start("./ccm.route_node.js", {
-                "isRoot": true,
+                "patterns":[""],
                 "observer" : [
                     (route)=>{
                         console.log("[Route 1 Observer] ", route);
                     }
-                ]
+                ],
+                "isRoot": true,
             }, function(instance){
                 route_1 = instance;
                 ccm.start("./ccm.route_node.js", {
@@ -69,7 +70,7 @@ THE SOFTWARE.
                         ]
                         }, function(instance_2){
                             route_3 = instance_2;
-                            route_3.navigatedTo("/week_1"); // expect ..#/foo/week_1
+                            route_3.checkURL();
                     });
                 });
             });

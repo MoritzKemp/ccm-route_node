@@ -6,16 +6,23 @@ The routing-node helps you to add unique URL's to
 your Single-Page-Application.
 
 Routing of a ccm web application is accomplished with multiple
-instances of routing-nodes. A single routing-node, if notified, 
-is responsible to inform all his observers about the
-current url change and to notify attached routing-nodes.
-
-Each routing-node holds an array of patterns. These are used
-to decide if this routing-node should be notified upon a URL change.
+instances of routing-nodes, organized in a tree structure.
+Each node defines a pattern, upon its get notified on URL changes.
+A notified node calls all his registered observers and, if
+there is a route left, calls the next routing_nodes.
 
 ## Goals
 - provide a way to accomplish routing in SPA's build by ccm components
 - allow encapsulation to hide component specific routing
+
+## Concept
+The idea is that routing is organized in a tree structure, a route-tree.
+A particular route represents a walk inside the route-tree. Here, we only
+allow walks starting at the root node.
+A route, given from the browser as a string, is mapped to a walk
+inside the routing tree.
+
+TODO add more concept explanations.
 
 ## Example
 For example:
