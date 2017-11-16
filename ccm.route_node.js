@@ -44,9 +44,6 @@
                 }
                 if(my.prevNode.node)
                     my.prevNode.node.addNextNode(self);
-                
-                //Invoke URL check manualy once on start
-                onURLChange();
                 if(callback) callback();
             };
             
