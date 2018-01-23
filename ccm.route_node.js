@@ -25,7 +25,7 @@
 (function(){
     var component = {
         name: 'route_node',
-        ccm: 'https://akless.github.io/ccm/ccm.js',
+        ccm: 'https://akless.github.io/ccm/version/ccm-14.3.0.min.js',
         config: {
             'patterns': [],
             'nextNodes': [],
